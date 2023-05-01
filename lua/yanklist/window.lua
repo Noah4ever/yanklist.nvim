@@ -1,3 +1,4 @@
+local utils = require("yanklist.utils")
 local M = {}
 
 function M.open()
@@ -8,21 +9,7 @@ function M.open()
   -- Create the scratch buffer displayed in the floating window
   local buf = vim.api.nvim_create_buf(false, true)
 
-  local yank_history = vim.fn.execute("reg")
-  -- Change yank_history to a table
-  yank_history = vim.split(yank_history, "\n")
-  -- Remove the first line
-  table.remove(yank_history, 1)
-  table.remove(yank_history, 2)
-  -- Get only the content of the registers
-  for i, v in ipairs(yank_history) do
-    print("asd", v)
-    yank_history[i] = vim.split(v, '"')[2]
-  end
-
-  print(vim.inspect(yank_history))
-
-  vim.api.nvim_buf_set_lines(buf, 0, -1, false, yank_history)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, utils.getYankList())
 
   -- Create the floating window
   local ui = vim.api.nvim_list_uis()[1]
