@@ -33,8 +33,8 @@ function M.open()
   vim.api.nvim_buf_set_keymap(buf, "n", "q", ":q<CR>", { noremap = true, silent = true })
 
   -- Define the size of the flodating window
-  local width = 50
-  local height = 10
+  local width = 100
+  local height = 25
 
   local win = vim.api.nvim_open_win(buf, true, {
     relative = "editor",
@@ -47,7 +47,8 @@ function M.open()
     border = "rounded",
   })
   -- set title
-  Add_title_to_win(win, "Yanklist")
+  -- TODO: Title is not beeing closed when main window is closed (AutoCmd is not working correctly)
+  -- Add_title_to_win(win, "Yanklist")
 end
 
 local winid_map = {}
