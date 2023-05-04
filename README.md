@@ -2,6 +2,19 @@
 
 Plugin to see and copy yank history entries!
 
+
+
+```
++------- Yanklist -------+
+| print("foo")           |
+|                        |
+|                        |
+|                        |
++------------------------+
+| Search...              |
++------------------------+
+```
+
 ## Dev
 
 Start development from root project folder with:
