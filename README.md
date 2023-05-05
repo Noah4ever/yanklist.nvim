@@ -2,18 +2,9 @@
 
 Plugin to see and copy yank history entries!
 
+![image](https://user-images.githubusercontent.com/66632359/236573622-ed1e256f-d0eb-49ff-b928-408e2f31363d.png)
 
 
-```
-+------- Yanklist -------+
-| print("foo")           |
-|                        |
-|                        |
-|                        |
-+------------------------+
-| Search...              |
-+------------------------+
-```
 
 ## Dev
 
