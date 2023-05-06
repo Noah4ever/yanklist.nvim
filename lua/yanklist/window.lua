@@ -4,14 +4,20 @@ local M = {}
 function M.open()
   local Menu = require("nui.menu")
   local event = require("nui.utils.autocmd").event
+
   local yanklist = utils.get_yanklist()
   local lines = {}
+  -- create a list of lines
   for _, v in ipairs(yanklist) do
-    -- TODO: if v == 'some escape char for separator' then insert separator
-    -- TODO: onclick ON separator copy all sub items to clipboard
-    table.insert(lines, Menu.item(v))
+    if v._type == nil then
+      table.insert(lines, Menu.item(v))
+    elseif v._type == "separator" then
+      print(vim.inspect(v))
+      table.insert(lines, v)
+    end
   end
 
+  -- create a new menu
   local menu = Menu({
     position = "50%",
     size = {
