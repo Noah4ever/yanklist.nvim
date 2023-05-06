@@ -12,7 +12,6 @@ function M.open()
     if v._type == nil then
       table.insert(lines, Menu.item(v))
     elseif v._type == "separator" then
-      print(vim.inspect(v))
       table.insert(lines, v)
     end
   end
