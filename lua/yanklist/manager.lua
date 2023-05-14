@@ -48,8 +48,8 @@ function M.read_yank_history()
     file:close()
     return {}
   end
-  file:close()
   yank_history = vim.fn.json_decode(file:read("*a"))
+  file:close()
   return yank_history
 end
 
