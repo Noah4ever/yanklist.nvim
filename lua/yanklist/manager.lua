@@ -1,3 +1,4 @@
+-- Last Change: 14/05/2023 22:51:30
 local M = {}
 local FILEPATH = vim.fn.stdpath("data") .. "/yank_history.json"
 local yank_history = {}
