@@ -1,19 +1,12 @@
-local utils = require("yanklist.utils")
 local M = {}
 
-function M.open()
+function M.open(yanklist)
   local Menu = require("nui.menu")
-  local event = require("nui.utils.autocmd").event
 
-  local yanklist = utils.get_yanklist()
   local lines = {}
   -- create a list of lines
   for _, v in ipairs(yanklist) do
-    if v._type == nil then
-      table.insert(lines, Menu.item(v))
-    elseif v._type == "separator" then
-      table.insert(lines, v)
-    end
+    table.insert(lines, Menu.item(v))
   end
 
   -- create a new menu
@@ -48,7 +41,7 @@ function M.open()
     on_submit = function(item)
       vim.fn.setreg("+", item.text)
       vim.fn.setreg("", item.text)
-      print('Yanked to "" and "+: ', string.gsub(item.text, "^%s*(.-)%s*$", "%1"))
+      print('Yanked to "" and "+: ', item.text)
     end,
   })
 
